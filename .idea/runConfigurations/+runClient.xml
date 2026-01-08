@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name=" Minecraft Client" factoryName="Application" type="Application">
+        <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.472.8-hotspot"></option>
+        <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true"></option>
+        <envs></envs>
+        <option name="MAIN_CLASS_NAME" value="net.fabricmc.loader.impl.launch.knot.KnotClient"></option>
+        <module name="AlphaPlace-fabric.main"></module>
+        <classpathModifications></classpathModifications>
+        <option name="PROGRAM_PARAMETERS" value="Dev 0 --gameDir C:\workspace\Recobbled-Fabric-ExampleMod-master\run\client --assetsDir C:\workspace\Recobbled-Fabric-ExampleMod-master\run\client\resources"></option>
+        <option name="VM_PARAMETERS" value="-Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump &quot;-Dos.name=Windows 10&quot; -Dos.version=10.0 -Djava.library.path=C:\workspace\Recobbled-Fabric-ExampleMod-master\run\client\natives -Dminecraft.launcher.brand=UniminedDev -Dminecraft.launcher.version=1.0.0 -Dhttp.proxyHost=betacraft.uk -Dhttp.proxyPort=11705 -Dfabric.development=true -Dfabric.remapClasspathFile=C:\workspace\Recobbled-Fabric-ExampleMod-master\.gradle\unimined\local\remapClasspath.txt -Dfabric.classPathGroups= -Djma.priorityClasspath=C:\workspace\Recobbled-Fabric-ExampleMod-master\build\classes\java\main;C:\workspace\Recobbled-Fabric-ExampleMod-master\build\resources\main -javaagent:C:\Users\farn\.gradle\caches\modules-2\files-2.1\xyz.wagyourtail.unimined\jarmod-agent\0.1.4-SNAPSHOT\43116c7247775a0d88a0f39445fb055bf8752b3f\jarmod-agent-0.1.4-SNAPSHOT-all.jar"></option>
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run\client"></option>
+        <method v="2">
+            <option name="Make" enabled="true"></option>
+            <option scriptParameters="" name="Gradle.BeforeRunTask" externalProjectPath="$PROJECT_DIR$/" vmOptions="" enabled="true" tasks="preRunClient"></option>
+        </method>
+    </configuration>
+</component>

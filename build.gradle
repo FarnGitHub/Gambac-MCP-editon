@@ -1,0 +1,80 @@
+plugins {
+    id 'java'
+    id 'xyz.wagyourtail.unimined' version '1.4.2-SNAPSHOT'
+}
+
+group = project.property('group')
+version = project.property('version')
+base.archivesName = project.property('modname')
+
+java {
+    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+unimined {
+    useGlobalCache = true
+
+    minecraft {
+        version 'b1.7.3'
+        side "client"
+
+        mappings {
+            retroMCP("b1.7")
+            devNamespace("retroMCP")
+            stubs(['official', 'retroMCP']) {
+                def base = 'net/minecraft/src'
+                def mapClass = { name ->
+                    def path = "$base/$name"
+                    c(name, path, path)
+                }
+            }
+        }
+
+        merged {
+            fabric {
+                customIntermediaries = true
+                prodNamespace("official")
+                devMappings = null
+                loader '0.18.4'
+            }
+
+            accessWidener {
+                accessWidener(file("src/main/resources/gambac.accesswidener"))
+            }
+
+            jarMod {
+            }
+        }
+    }
+}
+
+import xyz.wagyourtail.unimined.api.minecraft.task.RemapJarTask
+
+tasks.withType(RemapJarTask).configureEach {
+    mixinRemap {
+        enableBaseMixin()
+        enableMixinExtra()
+    }
+}
+
+dependencies {
+    jarMod(files("custom_jar/Recobbled 1.4.jar"))
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
